@@ -18,6 +18,27 @@ public:
     virtual void initial_traits(std::string trait_desc) = 0;
 };
 
+class Surtr : character
+{
+public:
+    int m_atk;
+    int m_def;
+    int m_crit;
+    std::string m_trait;
+
+    void initial_stats(int atk, int def, int crit) override
+    {
+        m_atk = atk;
+        m_def = def;
+        m_crit = crit;
+    }
+
+    void initial_traits(std::string trait_desc) override
+    {
+        m_trait = std::move(trait_desc);
+    }
+};
+
 class Blade : character
 {
 public:
@@ -33,7 +54,7 @@ public:
         m_crit = crit;
     }
 
-    void initial_trait(std::string trait_desc)
+    void initial_traits(std::string trait_desc) override
     {
         m_trait = std::move(trait_desc);
     }
