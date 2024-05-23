@@ -2,8 +2,9 @@
 
 int main()
 {
-    std::unique_ptr<factory<Blade>> character_factory = std::make_unique<factory<Blade>>();
-    auto character_1 = character_factory->create_object_pointer();
+    factory character_factory{};
+    auto character_1 = character_factory.create_character<blade>("Attack all blocked enemies");
+    auto character_2 = character_factory.create_character<surtr>("Attack deals art damage");
 
     return 0;
 }
